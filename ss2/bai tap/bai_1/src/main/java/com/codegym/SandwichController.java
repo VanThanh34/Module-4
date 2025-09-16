@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("save")
 public class SandwichController {
     @RequestMapping
-    public String save(@RequestParam(value = "condiment", required = false) String[] condiment, Model model) {
-        if(condiment == null){
-           model.addAttribute("result","Không chọn nguyên liệu");
-        } else {
-            model.addAttribute("result", String.join(", ", condiment));
-        }
+    public String save(@RequestParam(value = "condiment") String[] condiment, Model model) {
+//        if(condiment == null){
+//           model.addAttribute("result","Không chọn nguyên liệu");
+//        } else {
+//            model.addAttribute("result", String.join(", ", condiment));
+//        }
+
+        model.addAttribute("result", String.join(", ", condiment));
         return "success";
 
     }
