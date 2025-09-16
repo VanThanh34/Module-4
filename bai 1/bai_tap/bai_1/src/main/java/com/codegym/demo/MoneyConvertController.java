@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/convert")
 public class MoneyConvertController {
 
+
+
     @RequestMapping
     public String convert(@RequestParam("usd") double usd, Model model){
         if (usd > 0){

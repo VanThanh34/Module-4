@@ -12,5 +12,6 @@
 <input type="number" id="usd" name="usd">
 <button type="submit">Convert</button>
 </form>
+
 </body>
 </html>
