@@ -9,6 +9,22 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        a:hover {
+            background: #2980b9;
+        }
+    </style>
 </head>
 <body>
 <h2>Result</h2>
