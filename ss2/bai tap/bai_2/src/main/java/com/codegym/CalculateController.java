@@ -32,6 +32,6 @@ public String calculate(@RequestParam("num1") double num1, @RequestParam("num2")
         }
         model.addAttribute("result", result);
         model.addAttribute("operation", choice);
-        return "result";
+        return "index";
 }
 }

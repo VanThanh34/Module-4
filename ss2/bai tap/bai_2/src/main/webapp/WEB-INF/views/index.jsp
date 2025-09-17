@@ -16,5 +16,6 @@
     <button type="submit" name="operation" value="Division">Division(/)</button>
 
 </form>
+<p>Result ${operation} : ${result}</p>
 </body>
 </html>

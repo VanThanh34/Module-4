@@ -20,4 +20,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <request-character-encoding>UTF-8</request-character-encoding>
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
