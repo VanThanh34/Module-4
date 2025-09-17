@@ -17,6 +17,7 @@ public class EmailSettings {
         this.sign = sign;
     }
 
+
     public String getLanguage() {
         return language;
     }

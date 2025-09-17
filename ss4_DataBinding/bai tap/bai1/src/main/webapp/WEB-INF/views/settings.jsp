@@ -12,6 +12,8 @@
 <body>
 <h1>Email Settings</h1>
 
+
+
 <form:form method="post" modelAttribute="settings">
     <table cellpadding="8">
         <tr>
