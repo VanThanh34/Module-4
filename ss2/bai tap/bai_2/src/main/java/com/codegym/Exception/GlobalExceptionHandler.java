@@ -13,5 +13,10 @@ public class GlobalExceptionHandler {
         model.addAttribute("error", "Invalid Number!");
         return "error";
     }
+    @ExceptionHandler(ArithmeticException.class)
+    public String handleArithmetic(ArithmeticException ex, Model model) {
+        model.addAttribute("error", ex.getMessage());
+        return "error";
+    }
 }
 

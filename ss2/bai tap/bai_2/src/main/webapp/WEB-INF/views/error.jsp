@@ -12,6 +12,6 @@
 </head>
 <body>
 <p>${error}</p>
-<a href="index.jsp">Back</a>
+<a href="${pageContext.request.contextPath}/">Back</a>
 </body>
 </html>
