@@ -17,6 +17,7 @@ public class EmailController {
         this.emailService = emailService;
     }
 
+    
     @GetMapping
     public String showForm(Model model) {
         model.addAttribute("settings", emailService.getSettings());
