@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <th:block th:replace="~{common/template::library}">
+
+    </th:block>
+</head>
+<body>
+<div th:replace="~{common/template::header}">
+</div>
+<h1>Danh sách học sinh</h1>
+
+<button type="button" onclick="window.location.href='/students/create'">Thêm mới</button>
+<table border="1" style="width: 500px">
+    <tr>
+        <td>STT</td>
+        <td>Name</td>
+        <td>DOB</td>
+        <td>Point</td>
+        <td>Chỉnh sửa</td>
+    </tr>
+    <tr th:each="student, temp: ${students}">
+        <td th:text="${temp.count}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${#temporals.format(student.dob, 'dd-MM-yyyy')}"></td>
+        <td th:if="${student.point == null}">
+            Chưa có điểm
+        </td>
+        <td th:if="${student.point != null}" th:text=" ${student.point}">
+        </td>
+        <td><a th:href="@{/students/update/{id}(id=${student.id})}">Cập nhật</a></td>
+    </tr>
+</table>
+<p id="message" th:text="${message}"></p>
+</body>
+<script>
+    setTimeout(function () {
+        document.getElementById("message").style.display = "none";
+    }, 3000)
+</script>
+</body>
+</html>
