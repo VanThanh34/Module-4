@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
     public String handleTypeMismatch(MethodArgumentTypeMismatchException ex, Model model) {
         model.addAttribute("errorTitle", "ID không hợp lệ");
         model.addAttribute("errorMessage", "ID phải là một số nguyên hợp lệ!");
-        return "products/error";
+        return "product/error";
     }
 
 
@@ -23,6 +23,6 @@ public class GlobalExceptionHandler {
     public String handleNotFound(ProductsNotFoundException ex, Model model) {
         model.addAttribute("errorTitle", "Không tìm thấy sản phẩm");
         model.addAttribute("errorMessage", ex.getMessage());
-        return "products/error";
+        return "product/error";
     }
 }

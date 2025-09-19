@@ -39,6 +39,7 @@ public class ProductService implements IProductService {
             productUpdate.setDescription(t.getDescription());
             productUpdate.setNhacc(t.getNhacc());
         }
+
     }
 
     @Override
