@@ -27,10 +27,15 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void save(Product product) {
-        Integer id = products.get(products.size() -1).getId() +1;
-        product.setId(id);
+        if (products.isEmpty()) {
+            product.setId(1);
+        } else {
+            Integer id = products.get(products.size() - 1).getId() + 1;
+            product.setId(id);
+        }
         products.add(product);
     }
+
 
     @Override
     public Product findById(Integer id) {
@@ -58,7 +63,7 @@ public class ProductRepository implements IProductRepository {
         while (iterator.hasNext()) {
             Product p = iterator.next();
             if (p.getId().equals(id)) {
-                iterator.remove(); // ✅ xoá an toàn khi dùng for-each style
+                iterator.remove();
                 break;
             }
         }

@@ -1,6 +1,7 @@
 package com.codegym.controller;
 
 import com.codegym.entity.Product;
+import com.codegym.exception.ProductsNotFoundException;
 import com.codegym.service.IProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +21,10 @@ public class ProductController {
     @GetMapping
     public String findAll(Model model) {
         model.addAttribute("products", service.findAll());
+        model.addAttribute("notfound", "Không có sản phẩm nào");
         return "products/list";
     }
+
 
     @GetMapping("/create")
     public String addProduct(Model model) {
@@ -39,36 +42,42 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    @GetMapping("/detail/{id}")
-    public String detail(@PathVariable Integer id, Model model) {
-        Product product = service.findById(id);
-        model.addAttribute("product", product);
-        return "/products/detail";
-    }
-
-
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable Integer id, Model model) {
         Product product = service.findById(id);
         if (product == null) {
-            return "redirect:/products";
+            throw new ProductsNotFoundException("Không tìm thấy sản phẩm với ID: " + id);
         }
         model.addAttribute("product", product);
         return "products/update";
     }
 
-
     @PostMapping("/update")
-    public String update(@ModelAttribute("product") Product product, RedirectAttributes redirect) {
+    public String update(@ModelAttribute Product product, RedirectAttributes redirect) {
         service.update(product);
-        redirect.addFlashAttribute("message", "Cập nhật sản phẩm thành công!");
+        redirect.addFlashAttribute("message", "Cập nhật thành công");
         return "redirect:/products";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, RedirectAttributes redirect) {
+        Product product = service.findById(id);
+        if (product == null) {
+            throw new ProductsNotFoundException("Không tìm thấy sản phẩm với ID: " + id);
+        }
         service.deleteById(id);
         redirect.addFlashAttribute("message", "Xoá sản phẩm thành công!");
         return "redirect:/products";
     }
+
+    @GetMapping("/detail/{id}")
+    public String detail(@PathVariable Integer id, Model model) {
+        Product product = service.findById(id);
+        if (product == null) {
+            throw new ProductsNotFoundException("Không tìm thấy sản phẩm với ID: " + id);
+        }
+        model.addAttribute("product", product);
+        return "products/detail";
+    }
+
 }
