@@ -2,11 +2,25 @@ package com.codegym.c0525g1.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Entity(name = "students")
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "name_student")
     private String name;
+
+    @Column(name = "date_create")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private Double point;

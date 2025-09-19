@@ -4,6 +4,8 @@ import com.codegym.c0525g1.entity.Student;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,22 +22,30 @@ public class StudentRepository {
     }
 
     public List<Student> findAll() {
-
+//        HQL
+        String temp = "%"+""+"%";
+        List<Student> students = BaseRepository.entityManager
+                .createQuery("select s from students as s where s.name like :name")
+                .setParameter("name", temp).getResultList();
         return students;
     }
 
     public void save(Student student) {
-        Integer id = students.get(students.size() - 1).getId() + 1;
-        student.setId(id);
-        students.add(student);
+        EntityTransaction transaction = BaseRepository.entityManager.getTransaction();
+        transaction.begin();
+        BaseRepository.entityManager.persist(student);
+        transaction.commit();
     }
 
     public Student findById(Integer id) {
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                return student;
-            }
-        }
-        return null;
+        Student student = BaseRepository.entityManager.find(Student.class, id);
+        return student;
+    }
+
+    public void delete(Student student) {
+        EntityTransaction transaction = BaseRepository.entityManager.getTransaction();
+        transaction.begin();
+        BaseRepository.entityManager.remove(student);
+        transaction.commit();
     }
 }
