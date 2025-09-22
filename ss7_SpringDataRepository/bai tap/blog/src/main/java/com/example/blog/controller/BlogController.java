@@ -44,7 +44,6 @@ public class BlogController {
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable Integer id, Model model) {
         Blog Blog = service.findById(id).orElseThrow(() ->
-                //orElseThrow kiểm tra nếu lỗi thì bắn sang lỗi luôn
                 new BlogNotFoundException("Không tìm thấy blog với ID: " + id));
         model.addAttribute("blogs", Blog);
         return "blog/update";
@@ -64,7 +63,7 @@ public class BlogController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, RedirectAttributes redirect) {
         Blog Blog = service.findById(id).orElse(null);
-        //orElse(null) thì sẽ kiểm tra null như bình thường
+        
         if (Blog == null) {
             throw new BlogNotFoundException("Không tìm thấy blog với ID: " + id);
         }
