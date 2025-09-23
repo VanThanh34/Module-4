@@ -33,6 +33,7 @@ public class BlogController {
         return "blog/create";
     }
 
+    //Dùng RequestBody để gửi dữ liệu dạng json từ postman qua bên db
     @PostMapping("/create")
     public String addBlog(@ModelAttribute("blogs") Blog blog, BindingResult bindingResult, RedirectAttributes redirect) {
         if (bindingResult.hasErrors()) {
