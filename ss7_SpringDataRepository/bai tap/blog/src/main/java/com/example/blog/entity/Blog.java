@@ -13,7 +13,8 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "blogs")
+@Entity
+@Table(name = "blogs")
 public class Blog {
 
     @Id
@@ -30,4 +31,8 @@ public class Blog {
 
     @Column(name = "blog_context", nullable = false)
     private String context;
+
+    @ManyToOne
+    @JoinColumn(name = "id_category", referencedColumnName = "category_id")
+    private Category category;
 }

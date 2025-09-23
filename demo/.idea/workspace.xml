@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0606cd23-48a7-457a-8479-96250ce1249d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/entity/Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/IClassroomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/IStudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/IClassroomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/IStudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/impl/ClassroomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/impl/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/common/template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/student/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/student/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/exception/PageNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/impl/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__MACOSX/src/main/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/C0525g1SpringBootApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/controller/StudentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/entity/Classroom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/repository/IClassroomRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/repository/IStudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/service/IClassroomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/service/IService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/service/IStudentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/service/impl/ClassroomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/c0525g1_spring_boot/service/impl/StudentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/student/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/student/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/codegym/c0525g1_spring_boot/C0525g1SpringBootApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/entity/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/entity/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/exception/GlobalHandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/exception/GlobalHandlerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/impl/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/java/com/example/blog/service/impl/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/resources/templates/blog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_SpringDataRepository/bai tap/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="335kEEcT9sfVuo7SCfnJwmjjJs0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/CodeGym/Module 4/demo/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0606cd23-48a7-457a-8479-96250ce1249d" name="Changes" comment="" />
+      <created>1758614206314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758614206314</updated>
+      <workItem from="1758614207398" duration="957000" />
+      <workItem from="1758640310340" duration="45000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

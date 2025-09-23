@@ -21,4 +21,11 @@ public class GlobalHandlerException {
         model.addAttribute("errorMess", ex.getMessage());
         return "blog/error";
     }
+
+    @ExceptionHandler(PageNotFoundException.class)
+    public String handlePageNotFound(PageNotFoundException ex, Model model){
+        model.addAttribute("error", "Trang bạn tìm không có");
+        model.addAttribute("errorMess", ex.getMessage());
+        return "blog/error";
+    }
 }

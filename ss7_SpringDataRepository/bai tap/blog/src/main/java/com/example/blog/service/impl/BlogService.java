@@ -3,12 +3,16 @@ package com.example.blog.service.impl;
 import com.example.blog.entity.Blog;
 import com.example.blog.repository.IBlogRepository;
 import com.example.blog.service.IBlogService;
-import org.springframework.stereotype.Controller;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Service
 public class BlogService implements IBlogService {
     private final IBlogRepository repository;
 
@@ -46,5 +50,11 @@ public class BlogService implements IBlogService {
     @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Page<Blog> findAllPageable(int page) {
+        Pageable pageable = PageRequest.of(page, 5, Sort.by("day").descending());
+        return repository.findAll(pageable);
     }
 }
