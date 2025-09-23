@@ -24,6 +24,11 @@
 
     <label>Point</label>
     <input type="text" name="point" th:field="*{point}"/>
+
+    <label>Classroom</label>
+    <select th:field="*{classroom}">
+        <option th:each="classroom: ${classrooms}" th:text="${classroom.name}" th:value="${classroom.id}"></option>
+    </select>
     <button type="submit">Thêm</button>
 </form>
 </body>

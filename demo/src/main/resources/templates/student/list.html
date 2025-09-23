@@ -22,9 +22,10 @@
         <td>Name</td>
         <td>DOB</td>
         <td>Point</td>
+        <td>Lớp</td>
         <td>Chỉnh sửa</td>
     </tr>
-    <tr th:each="student, temp: ${students}">
+    <tr th:each="student, temp: ${students.content}">
         <td th:text="${temp.count}"></td>
         <td th:text="${student.name}"></td>
         <td th:text="${#temporals.format(student.dob, 'dd-MM-yyyy')}"></td>
@@ -33,9 +34,29 @@
         </td>
         <td th:if="${student.point != null}" th:text=" ${student.point}">
         </td>
+        <td th:text="${student.classroom.name}"></td>
         <td><a th:href="@{/students/update/{id}(id=${student.id})}">Cập nhật</a></td>
     </tr>
 </table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item" th:classappend=" ${!students.hasPrevious()} ? 'disabled'">
+            <a class="page-link" th:href="@{/students(page=${students.number - 1})}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item" th:each="num : ${#numbers.sequence(0, students.getTotalPages() - 1)}"
+            th:classappend="${num} == ${students.number} ? 'active'">
+            <a class="page-link" th:href="@{/students(page  = ${num})}" th:text="${num}" ></a>
+        </li>
+
+        <li class="page-item"  th:classappend=" ${!students.hasNext()} ? 'disabled'">
+            <a class="page-link" th:href="@{/students(page=${students.number + 1})}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 <p id="message" th:text="${message}"></p>
 </body>
 <script>

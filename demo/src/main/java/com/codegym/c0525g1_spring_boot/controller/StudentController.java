@@ -2,6 +2,8 @@ package com.codegym.c0525g1_spring_boot.controller;
 
 import com.codegym.c0525g1_spring_boot.entity.Student;
 import com.codegym.c0525g1_spring_boot.service.IStudentService;
+import com.codegym.c0525g1_spring_boot.service.impl.ClassroomService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -22,14 +25,25 @@ import java.util.List;
 public class StudentController {
 
   private final IStudentService studentService;
+    private final ClassroomService classroomService;
 
-    public StudentController(IStudentService studentService) {
+    public StudentController(IStudentService studentService, ClassroomService classroomService) {
         this.studentService = studentService;
+        this.classroomService = classroomService;
     }
 
+//    @GetMapping
+//    public String getAllStudents(Model model) {
+//        List<Student> students = studentService.findAll();
+////        Phân biệt Model, ModelMap và ModelAndView
+//        model.addAttribute("students", students);
+//        return "student/list";
+//    }
+
     @GetMapping
-    public String getAllStudents(Model model) {
-        List<Student> students = studentService.findAll();
+    public String getAllStudents(Model model, @RequestParam(name = "page", defaultValue = "0")int page) {
+
+        Page<Student> students = studentService.findAllPageable(page);
 //        Phân biệt Model, ModelMap và ModelAndView
         model.addAttribute("students", students);
         return "student/list";
@@ -38,6 +52,7 @@ public class StudentController {
     @GetMapping("/create")
     public String createStudent(ModelMap model) {
         model.addAttribute("student", new Student());
+        model.addAttribute("classrooms", classroomService.findAll());
         return "student/create";
     }
 
