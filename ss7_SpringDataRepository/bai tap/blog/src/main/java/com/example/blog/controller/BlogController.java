@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
@@ -51,8 +53,14 @@ public class BlogController {
 
     @PostMapping("/update/{id}")
     public String update(@PathVariable Integer id,
-                         @ModelAttribute Blog blog,
+                         @ModelAttribute Blog blog,Model model,
                          RedirectAttributes redirect) {
+        Optional<Blog> existBlog = service.findById(id);
+
+        if (existBlog.isEmpty()) {
+            model.addAttribute("message", "Không tìm thấy blog với ID: " + id);
+            return "blog/error";
+        }
         blog.setId(id);
         service.update(blog);
         redirect.addFlashAttribute("message", "Cập nhật thành công");
@@ -63,7 +71,7 @@ public class BlogController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, RedirectAttributes redirect) {
         Blog Blog = service.findById(id).orElse(null);
-        
+
         if (Blog == null) {
             throw new BlogNotFoundException("Không tìm thấy blog với ID: " + id);
         }
