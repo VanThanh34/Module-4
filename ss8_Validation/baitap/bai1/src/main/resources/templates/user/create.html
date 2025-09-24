@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm User mới</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <th:block th:replace="~{common/template::library}">
+    </th:block>
+    <th:block th:replace="~{common/template::style}">
+    </th:block>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Thêm User mới</h2>
+
+    <div class="card shadow-sm p-4">
+        <form th:action="@{/users/create}" th:object="${userDto}" method="post">
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">First Name</label>
+                <input type="text" class="form-control" th:field="*{first_name}" placeholder="Nhập First Name" required>
+                <br>
+                <small class="err" th:errors="*{first_name}"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Last Name</label>
+                <input type="text" class="form-control" th:field="*{last_name}" placeholder="Nhập Last Name" required>
+                <br>
+                <small class="err" th:errors="*{last_name}"></small>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Ngày sinh</label>
+                <input type="date" class="form-control" th:field="*{dob}" required>
+                <br>
+                <small class="err" th:errors="*{dob}"></small>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Số điện thoại</label>
+                <input type="number" class="form-control" th:field="*{phone}" placeholder="Nhập số điện thoại" required>
+                <br>
+                <small class="err" th:errors="*{phone}"></small>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <input type="email" class="form-control" th:field="*{email}" placeholder="Nhập email">
+                <br>
+                <small class="err" th:errors="*{email}"></small>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a th:href="@{/users}" class="btn btn-secondary">⬅ Quay lại</a>
+                <button type="submit" class="btn btn-success">💾 Lưu</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
