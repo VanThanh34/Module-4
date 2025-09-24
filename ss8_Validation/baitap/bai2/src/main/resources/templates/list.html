@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Bài hát</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4 text-primary">🎵 Danh sách Bài hát</h1>
+
+
+    <div class="d-flex justify-content-end mb-3">
+        <a th:href="@{/songs/create}" class="btn btn-primary">+ Thêm mới</a>
+    </div>
+
+
+    <div class="table-responsive shadow-sm rounded w-100">
+        <table class="table table-striped table-bordered align-middle text-center">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên bài hát</th>
+                <th scope="col">Nghệ sĩ</th>
+                <th scope="col">Thể loại</th>
+                <th scope="col">Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:if="${#lists.isEmpty(songs)}">
+                <td colspan="5" class="text-center text-danger fw-bold">Chưa có bài hát nào!</td>
+            </tr>
+
+
+            <tr th:each="s, stat : ${songs}">
+                <td th:text="${stat.index + 1}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.ngheSi}"></td>
+                <td th:text="${s.theLoai}"></td>
+                <td>
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        <a th:href="@{/songs/update/{id}(id=${s.id})}" class="btn btn-sm btn-warning">Cập nhật</a>
+                        <a th:href="@{/songs/delete/{id}(id=${s.id})}"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Bạn có chắc muốn xoá bài hát này?')">
+                            Xoá
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Thông báo -->
+    <p id="message" class="text-success fw-bold mt-3 text-center" th:text="${message}"></p>
+</div>
+
+<script>
+    setTimeout(function () {
+        let msg = document.getElementById("message");
+        if (msg) msg.style.display = "none";
+    }, 3000);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm bài hát</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <th:block th:replace="~{template::style}">
+    </th:block>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center text-success mb-4">➕ Thêm bài hát mới</h1>
+
+    <form th:action="@{/songs/create}" th:object="${songDto}" method="post"
+          class="shadow p-4 bg-white rounded">
+
+        <div class="mb-3">
+            <label class="form-label">Tên bài hát:</label>
+            <input type="text" th:field="*{name}" class="form-control" required>
+            <br>
+            <small class="err" th:errors="*{name}"></small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Nghệ sĩ:</label>
+            <input type="text" th:field="*{ngheSi}" class="form-control" required>
+            <br>
+            <small class="err" th:errors="*{ngheSi}"></small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Thể loại:</label>
+            <input type="text" th:field="*{theLoai}" class="form-control" required>
+            <br>
+            <small class="err" th:errors="*{theLoai}"></small>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a th:href="@{/songs}" class="btn btn-secondary">⬅ Quay lại</a>
+            <button type="submit" class="btn btn-success">Lưu</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
