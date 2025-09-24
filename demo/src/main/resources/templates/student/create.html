@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <th:block th:replace="~{common/template::library}">
+    </th:block>
+    <th:block th:replace="~{common/template::style}">
+    </th:block>
+</head>
+<body>
+<div th:replace="~{common/template::header}">
+</div>
+<h1>Thêm mới</h1>
+<form method="post" th:object="${studentDto}">
+
+    <label>Name</label>
+    <input type="text" name="name"  th:field="*{name}"/>
+    <br>
+    <small class="err" th:errors="*{name}"></small>
+    <br>
+    <label>Date of birth</label>
+    <input type="date" name="dob" th:field="*{dob}"/>
+    <br>
+    <small class="err" th:errors="*{dob}"></small>
+    <br>
+    <label>Point</label>
+    <input type="text" name="point" th:field="*{point}"/>
+    <br>
+    <small class="err" th:errors="*{point}"></small>
+    <br>
+    <label>Classroom</label>
+    <select th:field="*{classroom}">
+        <option th:each="classroom: ${classrooms}" th:text="${classroom.name}" th:value="${classroom.id}"></option>
+    </select>
+    <br>
+    <small class="err" th:errors="*{classroom}"></small>
+    <br>
+    <button type="submit">Thêm</button>
+</form>
+</body>
+</html>

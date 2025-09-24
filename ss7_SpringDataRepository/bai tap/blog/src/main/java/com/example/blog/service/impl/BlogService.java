@@ -43,6 +43,7 @@ public class BlogService implements IBlogService {
             blog.setDay(b.getDay());
             blog.setDescription(b.getDescription());
             blog.setContext(b.getContext());
+            blog.setCategory(b.getCategory());
             repository.save(blog);
         }
     }
@@ -58,3 +59,7 @@ public class BlogService implements IBlogService {
         return repository.findAll(pageable);
     }
 }
+
+
+
+

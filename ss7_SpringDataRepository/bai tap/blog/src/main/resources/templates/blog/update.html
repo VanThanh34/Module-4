@@ -29,10 +29,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="category" class="form-label">Danh mục:</label>
-                    <select id="category" th:field="*{category}" class="form-control" required>
+                    <select id="category" th:field="*{category.id}" class="form-control" required>
+                        <option value="" th:if="${blogs.category == null}" selected>-- Chọn danh mục --</option>
                         <option th:each="cate : ${categories}"
-                                th:text="${cate.name}"
-                                th:value="${cate.id}">
+                                th:value="${cate.id}"
+                                th:text="${cate.name}">
                         </option>
                     </select>
                 </div>

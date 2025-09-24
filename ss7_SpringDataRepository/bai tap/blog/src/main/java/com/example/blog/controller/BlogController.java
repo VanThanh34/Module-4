@@ -78,6 +78,10 @@ public class BlogController {
             return "blog/error";
         }
         blog.setId(id);
+        Category category = categoryService.findById(blog.getCategory().getId())
+                .orElseThrow(() -> new RuntimeException("Category không tồn tại"));
+
+        blog.setCategory(category);
         service.update(blog);
         redirect.addFlashAttribute("message", "Cập nhật thành công");
         return "redirect:/blogs";
