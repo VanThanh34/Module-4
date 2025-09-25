@@ -39,8 +39,8 @@
 
             <tr th:each="u, stat : ${users}">
                 <td th:text="${stat.index + 1}"></td>
-                <td th:text="${u.first_name}"></td>
-                <td th:text="${u.last_name}"></td>
+                <td th:text="${u.getFirstName}"></td>
+                <td th:text="${u.getLastName}"></td>
                 <td th:text="${#temporals.format(u.dob, 'dd-MM-yyyy')}"></td>
                 <td th:text="${u.phone}"></td>
                 <td th:text="${u.email}"></td>

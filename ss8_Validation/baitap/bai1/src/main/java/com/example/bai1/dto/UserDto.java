@@ -19,10 +19,10 @@ import java.time.LocalDate;
 public class UserDto {
 
     @Pattern(regexp = "^[A-Za-z ]{5,45}$", message = "Tên phải đúng định dạng. như là Nguyen Van A.")
-    private String first_name;
+    private String firstName;
 
     @Pattern(regexp = "^[A-Za-z]{5,45}$", message = "Tên phải đúng định dạng. như là Nguyen Van A.")
-    private String last_name;
+    private String lastName;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @NotNull(message = "Ngày tháng năm sinh không được để trống")
