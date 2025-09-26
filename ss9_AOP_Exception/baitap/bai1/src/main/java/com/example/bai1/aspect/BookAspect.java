@@ -1,4 +1,4 @@
-package com.example.bai1.Aspect;
+package com.example.bai1.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

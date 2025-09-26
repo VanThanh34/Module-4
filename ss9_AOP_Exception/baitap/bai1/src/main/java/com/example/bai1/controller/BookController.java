@@ -48,7 +48,7 @@ public class BookController {
 
         model.addAttribute("book", book);
         model.addAttribute("code", code);
-        return "book/borrow-success";
+        return "book/borrow_success";
     }
 
     @GetMapping("/return/{id}")
@@ -72,7 +72,7 @@ public class BookController {
         borrowService.delete(borrow);
 
         model.addAttribute("book", book);
-        return "book/return-success";
+        return "book/return_success";
     }
 
 }
