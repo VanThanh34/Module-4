@@ -9,4 +9,5 @@ public interface IBookService {
     List<Book> findAll();
     void save(Book book);
     Optional<Book> findById(Integer id);
+    long updateBook(Book book);
 }

@@ -43,18 +43,8 @@ public class BookController {
             return "book/error";
         }
 
-
-        book.setQuantity(book.getQuantity() - 1);
-        service.save(book);
-
-
-        long code = Long.parseLong(String.format("%05d", (long)(Math.random() * 100000)));
-
-
-        Borrow borrow = new Borrow();
-        borrow.setBook(book);
-        borrow.setBorrowCode(code);
-        borrowService.save(borrow);
+        //chuyển qua service
+        long code = service.updateBook(book);
 
         model.addAttribute("book", book);
         model.addAttribute("code", code);
