@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+</head>
+<body>
+<h1>Giỏ hàng của bạn</h1>
+
+<div th:if="${#lists.isEmpty(cartDetails)}">
+    <p>Giỏ hàng đang trống.</p>
+    <a href="/products">Tiếp tục mua hàng</a>
+</div>
+
+<div th:unless="${#lists.isEmpty(cartDetails)}">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${cartDetails}">
+            <td th:text="${entry.key.id}"></td>
+            <td th:text="${entry.key.name}"></td>
+            <td th:text="${entry.key.price}"></td>
+            <td th:text="${entry.value}"></td>
+            <td th:text="${entry.key.price * entry.value}"></td>
+            <td>
+                <a th:href="@{'/cart/remove/' + ${entry.key.id}}">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Tổng tiền: <span th:text="${total}"></span></h3>
+
+    <a href="/cart/clear">Xóa toàn bộ giỏ</a> |
+    <a href="/products">Tiếp tục mua hàng</a>
+</div>
+
+</body>
+</html>
