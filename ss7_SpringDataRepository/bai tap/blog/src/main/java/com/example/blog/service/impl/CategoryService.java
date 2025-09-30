@@ -41,4 +41,9 @@ public class CategoryService implements ICategoryService {
     public void deleteById(Integer id) {
 
     }
+
+    @Override
+    public List<Category> findAllCategory() {
+        return repository.findAll();
+    }
 }

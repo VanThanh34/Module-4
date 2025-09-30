@@ -58,6 +58,13 @@ public class BlogService implements IBlogService {
         Pageable pageable = PageRequest.of(page, 5, Sort.by("day").descending());
         return repository.findAll(pageable);
     }
+
+    @Override
+    public List<Blog> findByCategoryId(Integer id) {
+        return repository.findByCategoryId(id);
+    }
+
+
 }
 
 
