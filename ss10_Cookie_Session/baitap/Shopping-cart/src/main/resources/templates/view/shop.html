@@ -24,7 +24,7 @@
         <td th:text="${p.price}"></td>
         <td th:text="${p.description}"></td>
         <td>
-            <a th:href="@{'/products/add-to-cart/' + ${p.id}}">Thêm vào giỏ</a>
+            <a th:href="@{'/cart/add/' + ${p.id}}">Thêm vào giỏ</a>
         </td>
     </tr>
     </tbody>

@@ -1,6 +1,7 @@
 package com.example.shoppingcart.controller;
 
 import com.example.shoppingcart.entity.Product;
+import com.example.shoppingcart.exception.ProductNotFoundException;
 import com.example.shoppingcart.repository.IProductRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,26 @@ public class CartController {
         return "view/cart"; // cart/view.html
     }
 
-    // Xóa sản phẩm khỏi giỏ
+    @GetMapping("/add/{id}")
+    public String addToCart(@PathVariable("id") Integer id, HttpSession session) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Không tìm thấy sản phẩm id=" + id));
+
+
+        Map<Integer, Integer> cart = Optional.ofNullable(session.getAttribute("cart"))
+                .filter(obj -> obj instanceof Map)
+                .map(obj -> (Map<Integer, Integer>) obj)
+                .orElse(new HashMap<>());
+
+
+        cart.put(id, cart.getOrDefault(id, 0) + 1);
+
+
+        session.setAttribute("cart", cart);
+
+        return "redirect:/cart/view";
+    }
+
     @GetMapping("/remove/{id}")
     public String removeItem(@PathVariable("id") Integer id, HttpSession session) {
         Map<Integer, Integer> cart = (Map<Integer, Integer>) session.getAttribute("cart");
@@ -48,7 +68,7 @@ public class CartController {
         return "redirect:/cart/view";
     }
 
-    // Xóa toàn bộ giỏ hàng
+
     @GetMapping("/clear")
     public String clearCart(HttpSession session) {
         session.removeAttribute("cart");

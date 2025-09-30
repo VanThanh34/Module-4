@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bản đồ</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h2>Bản đồ Google Maps</h2>
+
+<!-- Hiển thị bản đồ -->
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        // Vị trí mặc định (Hà Nội)
+        const location = { lat: 16.0544, lng: 108.2022 };
+
+        // Tạo bản đồ
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: location,
+        });
+
+        // Thêm marker
+        new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "Đà Nẵng",
+        });
+    }
+</script>
+
+<!-- Nhúng Google Maps API (nhớ thay YOUR_API_KEY bằng key của ông bạn) -->
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBylQ9jzmkwSzIxVeMtR3o1BGoWnkmAWNw&callback=initMap">
+</script>
+
+</body>
+</html>

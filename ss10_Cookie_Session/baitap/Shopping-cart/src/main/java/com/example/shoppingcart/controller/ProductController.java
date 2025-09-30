@@ -1,6 +1,7 @@
 package com.example.shoppingcart.controller;
 
 import com.example.shoppingcart.entity.Product;
+import com.example.shoppingcart.exception.ProductNotFoundException;
 import com.example.shoppingcart.repository.IProductRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -25,26 +26,8 @@ public class ProductController {
         model.addAttribute("products", productRepository.findAll());
         return "view/shop";
     }
-
-
-    @GetMapping("/add-to-cart/{id}")
-    public String addToCart(@PathVariable("id") Integer id, HttpSession session) {
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy sản phẩm id=" + id));
-
-
-        Map<Integer, Integer> cart = Optional.ofNullable(session.getAttribute("cart"))
-                .filter(obj -> obj instanceof Map)
-                .map(obj -> (Map<Integer, Integer>) obj)
-                .orElse(new HashMap<>());
-
-
-
-        cart.put(id, cart.getOrDefault(id, 0) + 1);
-
-
-        session.setAttribute("cart", cart);
-
-        return "redirect:/cart/view";
+    @GetMapping("/map")
+    public String showMap() {
+        return "view/map"; // trỏ đến map.html
     }
 }
