@@ -1,6 +1,6 @@
 package com.example.blog.service.impl;
 
-import com.example.blog.dto.BlogDto;
+
 import com.example.blog.entity.Blog;
 import com.example.blog.repository.IBlogRepository;
 import com.example.blog.service.IBlogService;
@@ -63,6 +63,16 @@ public class BlogService implements IBlogService {
     @Override
     public List<Blog> findByCategoryId(Integer id) {
         return repository.findByCategoryId(id);
+    }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Blog> findByDescriptionContainingIgnoreCase(String keyword, Pageable pageable) {
+        return repository.findByDescriptionContainingIgnoreCase(keyword, pageable);
     }
 
 

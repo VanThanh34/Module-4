@@ -9,6 +9,9 @@ import com.example.blog.service.IBlogService;
 import com.example.blog.service.ICategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -31,15 +34,28 @@ public class BlogRestController {
     }
 
 
-    @GetMapping
-    public ResponseEntity<Page<Blog>> findAll(@RequestParam(name = "page", defaultValue = "0") int page) {
-        Page<Blog> blogs = service.findAllPageable(page);
-        if (blogs.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // 204
-        }
-        return new ResponseEntity<>(blogs, HttpStatus.OK); // 200
-    }
+//    @GetMapping
+//    public ResponseEntity<Page<Blog>> findAll(@RequestParam(name = "page", defaultValue = "0") int page) {
+//        Page<Blog> blogs = service.findAllPageable(page);
+//        if (blogs.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // 204
+//        }
+//        return new ResponseEntity<>(blogs, HttpStatus.OK); // 200
+//    }
 
+    @GetMapping
+    public Page<Blog> getBlogs(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(required = false) String keyword) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by("day").descending());
+
+        if (keyword != null && !keyword.isEmpty()) {
+            return service.findByDescriptionContainingIgnoreCase(keyword, pageable);
+        }
+        return service.findAll(pageable);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Blog> findById(@PathVariable Integer id) {

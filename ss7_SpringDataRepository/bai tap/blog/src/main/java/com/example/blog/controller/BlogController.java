@@ -42,50 +42,50 @@ public class BlogController {
         return "blog/list";
     }
 
-//    @GetMapping("/create")
-//    public String addBlog(Model model) {
-//        model.addAttribute("blogs", new Blog());
-//        return "blog/create";
-//    }
-//
-//    //Dùng RequestBody để gửi dữ liệu dạng json từ postman qua bên db
-//    @PostMapping("/create")
-//    public String addBlog(@ModelAttribute("blogs") Blog blog, BindingResult bindingResult, RedirectAttributes redirect) {
-//        if (bindingResult.hasErrors()) {
-//            return "blog/create";
-//        }
-//        service.save(blog);
-//        redirect.addFlashAttribute("message", "Thêm mới thành công");
-//        return "redirect:/blogs";
-//    }
-//
-//    @GetMapping("/update/{id}")
-//    public String showUpdateForm(@PathVariable Integer id, Model model) {
-//        Blog Blog = service.findById(id).orElseThrow(() ->
-//                new BlogNotFoundException("Không tìm thấy blog với ID: " + id));
-//        model.addAttribute("blogs", Blog);
-//        return "blog/update";
-//    }
-//
-//    @PostMapping("/update/{id}")
-//    public String update(@PathVariable Integer id,
-//                         @ModelAttribute Blog blog,Model model,
-//                         RedirectAttributes redirect) {
-//        Optional<Blog> existBlog = service.findById(id);
-//
-//        if (existBlog.isEmpty()) {
-//            model.addAttribute("message", "Không tìm thấy blog với ID: " + id);
-//            return "blog/error";
-//        }
-//        blog.setId(id);
-//        Category category = categoryService.findById(blog.getCategory().getId())
-//                .orElseThrow(() -> new RuntimeException("Category không tồn tại"));
-//
-//        blog.setCategory(category);
-//        service.update(blog);
-//        redirect.addFlashAttribute("message", "Cập nhật thành công");
-//        return "redirect:/blogs";
-//    }
+    @GetMapping("/create")
+    public String addBlog(Model model) {
+        model.addAttribute("blogs", new Blog());
+        return "blog/create";
+    }
+
+    //Dùng RequestBody để gửi dữ liệu dạng json từ postman qua bên db
+    @PostMapping("/create")
+    public String addBlog(@ModelAttribute("blogs") Blog blog, BindingResult bindingResult, RedirectAttributes redirect) {
+        if (bindingResult.hasErrors()) {
+            return "blog/create";
+        }
+        service.save(blog);
+        redirect.addFlashAttribute("message", "Thêm mới thành công");
+        return "redirect:/blogs";
+    }
+
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable Integer id, Model model) {
+        Blog Blog = service.findById(id).orElseThrow(() ->
+                new BlogNotFoundException("Không tìm thấy blog với ID: " + id));
+        model.addAttribute("blogs", Blog);
+        return "blog/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable Integer id,
+                         @ModelAttribute Blog blog,Model model,
+                         RedirectAttributes redirect) {
+        Optional<Blog> existBlog = service.findById(id);
+
+        if (existBlog.isEmpty()) {
+            model.addAttribute("message", "Không tìm thấy blog với ID: " + id);
+            return "blog/error";
+        }
+        blog.setId(id);
+        Category category = categoryService.findById(blog.getCategory().getId())
+                .orElseThrow(() -> new RuntimeException("Category không tồn tại"));
+
+        blog.setCategory(category);
+        service.update(blog);
+        redirect.addFlashAttribute("message", "Cập nhật thành công");
+        return "redirect:/blogs";
+    }
 
 
     @GetMapping("/delete/{id}")
