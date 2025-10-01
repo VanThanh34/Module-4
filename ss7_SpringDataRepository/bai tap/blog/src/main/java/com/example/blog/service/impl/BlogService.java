@@ -1,5 +1,6 @@
 package com.example.blog.service.impl;
 
+import com.example.blog.dto.BlogDto;
 import com.example.blog.entity.Blog;
 import com.example.blog.repository.IBlogRepository;
 import com.example.blog.service.IBlogService;

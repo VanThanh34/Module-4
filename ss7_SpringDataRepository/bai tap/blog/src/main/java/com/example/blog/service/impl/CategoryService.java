@@ -29,7 +29,7 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public Optional<Category> findById(Integer id) {
-        return Optional.empty();
+        return repository.findById(id);
     }
 
     @Override

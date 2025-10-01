@@ -1,6 +1,6 @@
 package com.example.blog.service;
 
-import com.example.blog.entity.Blog;
+import com.example.blog.dto.BlogDto;
 
 import java.util.List;
 import java.util.Optional;
