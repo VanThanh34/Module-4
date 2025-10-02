@@ -79,7 +79,7 @@ public class BlogRestController {
         return new ResponseEntity<>(blog, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Blog> update(@PathVariable Integer id,
                                     @Validated @RequestBody BlogDto blogDto) {
         Blog existBlog = service.findById(id).orElseThrow(()->
