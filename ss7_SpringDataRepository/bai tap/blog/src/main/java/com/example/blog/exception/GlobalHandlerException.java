@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class    GlobalHandlerException {
+public class GlobalHandlerException {
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<Map<String, Object>> handleTypeMisMatch(MethodArgumentTypeMismatchException ex) {
