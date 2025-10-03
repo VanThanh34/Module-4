@@ -13,9 +13,9 @@
 <body>
 <div th:replace="~{common/template::header}">
 </div>
-<h1>Danh sách học sinh</h1>
+<h1 th:text="#{student.list.title}"></h1>
 
-<button type="button" onclick="window.location.href='/students/create'">Thêm mới</button>
+<button type="button" onclick="window.location.href='/students/create'" th:text="#{student.list.create}"></button>
 <table border="1" style="width: 500px">
     <tr>
         <td>STT</td>
