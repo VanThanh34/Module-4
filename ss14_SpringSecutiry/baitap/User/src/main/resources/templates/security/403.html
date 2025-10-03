@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+   <title>403 page</title>
+   </head>
+<body class="bg-light">
+
+<div class="container text-center mt-5">
+    <div class="card shadow p-4">
+        <h1 class="display-4 text-danger">403</h1>
+        <p class="lead">Bạn không có quyền truy cập trang này!</p>
+        <a th:href="@{/}" class="btn btn-primary mt-3">Quay về trang chủ</a>
+        <a th:href="@{/login}" class="btn btn-outline-secondary mt-3 ms-2">Đăng nhập lại</a>
+    </div>
+</div>
+</body>
+</html>
